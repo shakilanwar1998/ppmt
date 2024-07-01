@@ -48,22 +48,22 @@ class QuestionResource extends Resource
                 ->label('Image')
                 ->columnSpanFull(),
 
-                Forms\Components\TextInput::make('option')
+                Forms\Components\TextInput::make('option_a')
                     ->label('Option A')
                     ->columnSpanFull()
                     ->required(),
 
-                Forms\Components\TextInput::make('option')
+                Forms\Components\TextInput::make('option_b')
                     ->label('Option B')
                     ->columnSpanFull()
                     ->required(),
 
-                Forms\Components\TextInput::make('option')
+                Forms\Components\TextInput::make('option_c')
                     ->label('Option C')
                     ->columnSpanFull()
                     ->required(),
 
-                Forms\Components\TextInput::make('option')
+                Forms\Components\TextInput::make('option_d')
                     ->label('Option D')
                     ->columnSpanFull()
                     ->required(),
@@ -95,10 +95,21 @@ class QuestionResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('category_id')
+                Tables\Columns\TextColumn::make('category.name')
+                    ->label('Category')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('question')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('option A')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('option B')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('option C')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('option D')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('Answer')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()

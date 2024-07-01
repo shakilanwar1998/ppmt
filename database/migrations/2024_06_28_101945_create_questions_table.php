@@ -22,8 +22,11 @@ return new class extends Migration
             $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
             $table->string('question',400);
             $table->string('image_url')->nullable();
-            $table->text('answer');
-            $table->json('options');
+            $table->string('answer');
+            $table->string('option_a');
+            $table->string('option_b');
+            $table->string('option_c');
+            $table->string('option_d');
             $table->timestamps();
         });
     }
