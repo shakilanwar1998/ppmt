@@ -97,7 +97,7 @@ class QuestionResource extends Resource
                 Tables\Columns\TextColumn::make('option_d')
                     ->label('D')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('Answer')
+                Tables\Columns\TextColumn::make('answer')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
