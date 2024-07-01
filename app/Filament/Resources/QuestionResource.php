@@ -28,22 +28,6 @@ class QuestionResource extends Resource
                     ->maxLength(400)
                     ->columnSpanFull(),
 
-//                Forms\Components\Repeater::make('options')
-//                    ->schema([
-//                        Forms\Components\TextInput::make('option')
-//                            ->label('Option')
-//                            ->columnSpanFull()
-//                            ->required(),
-//
-//                        Forms\Components\Toggle::make('is_correct')
-//                            ->label('Correct Answer')
-//                            ->inline() // Display radio buttons inline with options
-//                            ->columnSpanFull(),
-//                    ])
-//                    ->minItems(1)
-//                    ->columns(2)
-//                    ->columnSpanFull(),
-
                 Forms\Components\FileUpload::make('image_url')
                 ->label('Image')
                 ->columnSpanFull(),
@@ -101,13 +85,17 @@ class QuestionResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('question')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('option A')
+                Tables\Columns\TextColumn::make('option_a')
+                    ->label('A')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('option B')
+                Tables\Columns\TextColumn::make('option_b')
+                    ->label('B')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('option C')
+                Tables\Columns\TextColumn::make('option_c')
+                    ->label('C')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('option D')
+                Tables\Columns\TextColumn::make('option_d')
+                    ->label('D')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('Answer')
                     ->searchable(),
