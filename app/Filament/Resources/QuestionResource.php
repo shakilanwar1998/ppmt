@@ -24,8 +24,17 @@ class QuestionResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Textarea::make('question')
+                Forms\Components\RichEditor::make('question')
                     ->required()
+                    ->toolbarButtons([
+                        'blockquote',
+                        'bold',
+                        'h2',
+                        'h3',
+                        'italic',
+                        'redo',
+                        'underline',
+                    ])
                     ->maxLength(400)
                     ->columnSpanFull(),
 
@@ -71,6 +80,10 @@ class QuestionResource extends Resource
                     ->options(function () {
                         return Category::pluck('name', 'id');
                     })
+                    ->default(function () {
+                        $latestId = Question::orderBy('id', 'desc')->value('id');
+                        return $latestId ?? 0;
+                    })
                     ->required()
                     ->columnSpanFull()
             ]);
@@ -86,6 +99,8 @@ class QuestionResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('question')
                     ->searchable(),
+                Tables\Columns\ImageColumn::make('image_url')
+                    ->label('Image'),
                 Tables\Columns\TextColumn::make('option_a')
                     ->label('A')
                     ->searchable(),
