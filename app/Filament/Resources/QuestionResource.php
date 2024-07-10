@@ -7,9 +7,11 @@ use App\Filament\Resources\QuestionResource\RelationManagers;
 use App\Models\Category;
 use App\Models\Question;
 use Filament\Forms;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\Action;
 use Filament\Tables\Table;
 
 class QuestionResource extends Resource
@@ -127,7 +129,11 @@ class QuestionResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
+                Action::make('View')
+                    ->url(fn ($record): string => route('demo.question', $record->id))
+                    ->icon('heroicon-o-eye')
+                    ->openUrlInNewTab(),
+
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])

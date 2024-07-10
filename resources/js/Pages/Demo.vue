@@ -23,6 +23,11 @@
             <div class="question-block">
                 <div class="question">
                     <h3 class="question-title">{{ question.question }}</h3>
+
+                    <div class="question-image" v-if="question.image_url">
+                        <img :src=question.image_url alt="">
+                    </div>
+
                     <ul class="list-group mt-5">
                         <li class="flex items-center mb-5">
                             <input type="radio" id="option-a" name="question" value="A" class="mr-2">
