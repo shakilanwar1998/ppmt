@@ -13,7 +13,7 @@ class ExamController extends Controller
         if($question->image_url){
             $question->image_url = url('storage/'.$question->image_url);
         }
-        
+
         return Inertia::render('Demo',[
             'question' => $question
         ]);

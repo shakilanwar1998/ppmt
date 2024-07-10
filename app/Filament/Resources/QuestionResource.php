@@ -7,7 +7,6 @@ use App\Filament\Resources\QuestionResource\RelationManagers;
 use App\Models\Category;
 use App\Models\Question;
 use Filament\Forms;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -24,17 +23,8 @@ class QuestionResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\RichEditor::make('question')
+                Forms\Components\Textarea::make('question')
                     ->required()
-                    ->toolbarButtons([
-                        'blockquote',
-                        'bold',
-                        'h2',
-                        'h3',
-                        'italic',
-                        'redo',
-                        'underline',
-                    ])
                     ->maxLength(400)
                     ->columnSpanFull(),
 
