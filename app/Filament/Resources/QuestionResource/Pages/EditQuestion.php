@@ -16,4 +16,10 @@ class EditQuestion extends EditRecord
             Actions\DeleteAction::make(),
         ];
     }
+
+    protected function mutateFormDataBeforeSave(array $data): array
+    {
+        $data['question'] = strip_tags($data['question']);
+        return $data;
+    }
 }
