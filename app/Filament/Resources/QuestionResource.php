@@ -13,6 +13,7 @@ use Filament\Tables;
 use Filament\Tables\Actions\Action;
 use Filament\Tables\Table;
 
+
 class QuestionResource extends Resource
 {
     protected static ?string $model = Question::class;
@@ -23,14 +24,18 @@ class QuestionResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Textarea::make('question')
+                Forms\Components\RichEditor::make('question')
                     ->required()
                     ->maxLength(400)
                     ->columnSpanFull(),
 
                 Forms\Components\FileUpload::make('image_url')
-                ->label('Image')
-                ->columnSpanFull(),
+                    ->label('Image')
+                    ->columnSpanFull(),
+
+                Forms\Components\TextInput::make('sub_question')
+                    ->label('Sub Question')
+                    ->columnSpanFull(),
 
                 Forms\Components\TextInput::make('option_a')
                     ->label('Option A')
@@ -87,6 +92,9 @@ class QuestionResource extends Resource
                     ->label('Category')
                     ->numeric()
                     ->sortable(),
+                Tables\Columns\ImageColumn::make('image_url')
+                    ->label('Image'),
+
                 Tables\Columns\TextColumn::make('question')
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('image_url')
@@ -126,7 +134,7 @@ class QuestionResource extends Resource
 
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
-            ])
+            ])->actionsPosition(Tables\Enums\ActionsPosition::BeforeCells)
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
