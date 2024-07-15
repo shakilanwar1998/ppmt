@@ -139,7 +139,7 @@ class QuestionResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
-            ])->defaultSort('id','desc');
+            ])->defaultSort('id','desc')->paginated([1,2,3,4,5,10, 25, 50, 100, 200, 500, 1000, 'all']);
     }
 
     public static function getRelations(): array
