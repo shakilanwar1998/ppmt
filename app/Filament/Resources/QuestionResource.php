@@ -33,7 +33,7 @@ class QuestionResource extends Resource
                     ->label('Image')
                     ->columnSpanFull(),
 
-                Forms\Components\TextInput::make('sub_question')
+                Forms\Components\Textarea::make('sub_question')
                     ->label('Sub Question')
                     ->maxLength(400)
                     ->columnSpanFull(),
