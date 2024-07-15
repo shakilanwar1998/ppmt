@@ -35,6 +35,7 @@ class QuestionResource extends Resource
 
                 Forms\Components\TextInput::make('sub_question')
                     ->label('Sub Question')
+                    ->maxLength(400)
                     ->columnSpanFull(),
 
                 Forms\Components\TextInput::make('option_a')
