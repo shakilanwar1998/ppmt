@@ -20,6 +20,17 @@ class EditQuestion extends EditRecord
     protected function mutateFormDataBeforeSave(array $data): array
     {
         $data['question'] = strip_tags($data['question']);
+        $data['answer'] = $this->getCorrectAnswer($data);
         return $data;
+    }
+
+    protected function mutateFormDataBeforeFill(array $data): array
+    {
+        $data['is_correct_'.strtolower($data['answer'])] = true;
+        return $data;
+    }
+
+    private function getCorrectAnswer($data): string {
+        return $data['is_correct_a'] ? 'A': ($data['is_correct_b'] ? 'B' : ($data['is_correct_c'] ? 'C' : 'D'));
     }
 }

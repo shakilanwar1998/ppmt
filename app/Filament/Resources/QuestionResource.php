@@ -43,33 +43,65 @@ class QuestionResource extends Resource
                     ->columnSpanFull()
                     ->required(),
 
+                Forms\Components\Checkbox::make('is_correct_a')
+                    ->label('Correct Answer A')
+                    ->reactive()
+                    ->afterStateUpdated(function ($state, $set) {
+                        if ($state) {
+                            $set('correct_answer', 'A');
+                            $set('is_correct_b', false);
+                            $set('is_correct_c', false);
+                            $set('is_correct_d', false);
+                        }
+                    }),
+
                 Forms\Components\TextInput::make('option_b')
                     ->label('Option B')
                     ->columnSpanFull()
                     ->required(),
+                Forms\Components\Checkbox::make('is_correct_b')
+                    ->label('Correct Answer B')
+                    ->reactive()
+                    ->afterStateUpdated(function ($state, $set) {
+                        if ($state) {
+                            $set('correct_answer', 'B');
+                            $set('is_correct_a', false);
+                            $set('is_correct_c', false);
+                            $set('is_correct_d', false);
+                        }
+                    }),
 
                 Forms\Components\TextInput::make('option_c')
                     ->label('Option C')
                     ->columnSpanFull()
                     ->required(),
+                Forms\Components\Checkbox::make('is_correct_c')
+                    ->label('Correct Answer C')
+                    ->reactive()
+                    ->afterStateUpdated(function ($state, $set) {
+                        if ($state) {
+                            $set('correct_answer', 'C');
+                            $set('is_correct_a', false);
+                            $set('is_correct_b', false);
+                            $set('is_correct_d', false);
+                        }
+                    }),
 
                 Forms\Components\TextInput::make('option_d')
                     ->label('Option D')
                     ->columnSpanFull()
                     ->required(),
-
-                Forms\Components\Select::make('answer')
-                    ->label('Correct Answer')
-                    ->options(function () {
-                        return [
-                            'A' => 'A',
-                            'B' => 'B',
-                            'C' => 'C',
-                            'D' => 'D',
-                        ];
-                    })
-                    ->required()
-                    ->columnSpanFull(),
+                Forms\Components\Checkbox::make('is_correct_d')
+                    ->label('Correct Answer D')
+                    ->reactive()
+                    ->afterStateUpdated(function ($state, $set) {
+                        if ($state) {
+                            $set('correct_answer', 'D');
+                            $set('is_correct_a', false);
+                            $set('is_correct_b', false);
+                            $set('is_correct_c', false);
+                        }
+                    }),
 
                 Forms\Components\Select::make('category_id')
                     ->label('Category')
@@ -77,13 +109,14 @@ class QuestionResource extends Resource
                         return Category::pluck('name', 'id');
                     })
                     ->default(function () {
-                        $latestId = Question::orderBy('id', 'desc')->value('id');
+                        $latestId = Question::orderBy('id', 'desc')->value('category_id');
                         return $latestId ?? 0;
                     })
                     ->required()
                     ->columnSpanFull()
             ]);
     }
+
 
     public static function table(Table $table): Table
     {
