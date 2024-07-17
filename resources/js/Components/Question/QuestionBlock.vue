@@ -5,7 +5,10 @@
 
             <QuestionImage v-if="question.image_url" :url=question.image_url />
 
+            <h3 v-if="question.sub_question" class="mb-5 mt-5" style="font-size: 20px;text-align: center">{{ question.sub_question }}</h3>
+
             <ul class="list-group mt-5">
+
                 <li class="flex items-center mb-5">
                     <input type="radio" id="option-a" name="question" value="A" class="mr-2">
                     <label for="option-a" class="mr-4">A</label> {{ question.option_a }}

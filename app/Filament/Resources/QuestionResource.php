@@ -13,6 +13,7 @@ use Filament\Tables;
 use Filament\Tables\Actions\Action;
 use Filament\Tables\Table;
 
+
 class QuestionResource extends Resource
 {
     protected static ?string $model = Question::class;
@@ -23,47 +24,84 @@ class QuestionResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Textarea::make('question')
+                Forms\Components\RichEditor::make('question')
                     ->required()
                     ->maxLength(400)
                     ->columnSpanFull(),
 
                 Forms\Components\FileUpload::make('image_url')
-                ->label('Image')
-                ->columnSpanFull(),
+                    ->label('Image')
+                    ->columnSpanFull(),
+
+                Forms\Components\Textarea::make('sub_question')
+                    ->label('Sub Question')
+                    ->maxLength(400)
+                    ->columnSpanFull(),
 
                 Forms\Components\TextInput::make('option_a')
                     ->label('Option A')
                     ->columnSpanFull()
                     ->required(),
 
+                Forms\Components\Checkbox::make('is_correct_a')
+                    ->label('Correct Answer A')
+                    ->reactive()
+                    ->afterStateUpdated(function ($state, $set) {
+                        if ($state) {
+                            $set('correct_answer', 'A');
+                            $set('is_correct_b', false);
+                            $set('is_correct_c', false);
+                            $set('is_correct_d', false);
+                        }
+                    }),
+
                 Forms\Components\TextInput::make('option_b')
                     ->label('Option B')
                     ->columnSpanFull()
                     ->required(),
+                Forms\Components\Checkbox::make('is_correct_b')
+                    ->label('Correct Answer B')
+                    ->reactive()
+                    ->afterStateUpdated(function ($state, $set) {
+                        if ($state) {
+                            $set('correct_answer', 'B');
+                            $set('is_correct_a', false);
+                            $set('is_correct_c', false);
+                            $set('is_correct_d', false);
+                        }
+                    }),
 
                 Forms\Components\TextInput::make('option_c')
                     ->label('Option C')
                     ->columnSpanFull()
                     ->required(),
+                Forms\Components\Checkbox::make('is_correct_c')
+                    ->label('Correct Answer C')
+                    ->reactive()
+                    ->afterStateUpdated(function ($state, $set) {
+                        if ($state) {
+                            $set('correct_answer', 'C');
+                            $set('is_correct_a', false);
+                            $set('is_correct_b', false);
+                            $set('is_correct_d', false);
+                        }
+                    }),
 
                 Forms\Components\TextInput::make('option_d')
                     ->label('Option D')
                     ->columnSpanFull()
                     ->required(),
-
-                Forms\Components\Select::make('answer')
-                    ->label('Correct Answer')
-                    ->options(function () {
-                        return [
-                            'A' => 'A',
-                            'B' => 'B',
-                            'C' => 'C',
-                            'D' => 'D',
-                        ];
-                    })
-                    ->required()
-                    ->columnSpanFull(),
+                Forms\Components\Checkbox::make('is_correct_d')
+                    ->label('Correct Answer D')
+                    ->reactive()
+                    ->afterStateUpdated(function ($state, $set) {
+                        if ($state) {
+                            $set('correct_answer', 'D');
+                            $set('is_correct_a', false);
+                            $set('is_correct_b', false);
+                            $set('is_correct_c', false);
+                        }
+                    }),
 
                 Forms\Components\Select::make('category_id')
                     ->label('Category')
@@ -71,13 +109,14 @@ class QuestionResource extends Resource
                         return Category::pluck('name', 'id');
                     })
                     ->default(function () {
-                        $latestId = Question::orderBy('id', 'desc')->value('id');
+                        $latestId = Question::orderBy('id', 'desc')->value('category_id');
                         return $latestId ?? 0;
                     })
                     ->required()
                     ->columnSpanFull()
             ]);
     }
+
 
     public static function table(Table $table): Table
     {
@@ -87,6 +126,9 @@ class QuestionResource extends Resource
                     ->label('Category')
                     ->numeric()
                     ->sortable(),
+                Tables\Columns\ImageColumn::make('image_url')
+                    ->label('Image'),
+
                 Tables\Columns\TextColumn::make('question')
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('image_url')
@@ -126,12 +168,12 @@ class QuestionResource extends Resource
 
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
-            ])
+            ])->actionsPosition(Tables\Enums\ActionsPosition::BeforeCells)
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
-            ])->defaultSort('id','desc');
+            ])->defaultSort('id','desc')->paginated([1,2,3,4,5,10, 25, 50, 100, 200, 500, 1000, 'all']);
     }
 
     public static function getRelations(): array
