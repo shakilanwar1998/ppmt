@@ -1,11 +1,11 @@
 <template>
     <div class="question-block">
         <div class="question">
-            <h3 class="question-title">{{ question.question }}</h3>
+            <h3 class="question-title" v-html="question.question"></h3>
 
             <QuestionImage v-if="question.image_url" :url=question.image_url />
 
-            <h3 v-if="question.sub_question" class="mb-5 mt-5" style="font-size: 20px;text-align: center">{{ question.sub_question }}</h3>
+            <h3 v-if="question.sub_question" class="mb-5 mt-5" v-html="question.sub_question" style="font-size: 20px;text-align: center"></h3>
 
             <ul class="list-group mt-5">
 
