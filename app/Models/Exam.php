@@ -6,20 +6,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Question extends Model
+class Exam extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'question',
-        'sub_question',
-        'answer',
-        'option_a',
-        'option_b',
-        'option_c',
-        'option_d',
+        'title',
+        'banner',
+        'total_marks',
+        'total_questions',
         'category_id',
-        'image_url'
+        'duration'
     ];
 
     public function category(): BelongsTo
