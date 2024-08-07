@@ -22,7 +22,7 @@
     content: "\f005";
     position: absolute;
     right: -38px;
-    font-family: "Font Awesome 6 Free";
+    font-family: "Font Awesome 6 Free", serif;
 }
 .account-login {
     border-color: rgba(180, 180, 180, 1) !important;

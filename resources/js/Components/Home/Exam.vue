@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="stamp-img-block">
-                    <img src="assets/img/stamp.jpg" alt="">
+                    <img src="/images/stamp.jpg" alt="">
                 </div>
             </div>
             <div class="col-md-8">
