@@ -5,7 +5,9 @@
 
             <QuestionImage v-if="question.image_url" :url=question.image_url />
 
-            <h3 v-if="question.sub_question" class="mb-5 mt-5" v-html="question.sub_question" style="font-size: 20px;text-align: center"></h3>
+            <h3 v-if="question.sub_question" class="mb-5 mt-5" v-html="question.sub_question" style="font-size: 20px;"></h3>
+
+            <QuestionImage v-if="question.sub_question_image" :url=question.sub_question_image />
 
             <ul class="list-group mt-5">
 

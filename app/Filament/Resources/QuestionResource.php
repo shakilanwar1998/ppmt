@@ -38,6 +38,10 @@ class QuestionResource extends Resource
                     ->maxLength(400)
                     ->columnSpanFull(),
 
+                Forms\Components\FileUpload::make('sub_question_image')
+                    ->label('Sub Image')
+                    ->columnSpanFull(),
+
                 Forms\Components\TextInput::make('option_a')
                     ->label('Option A')
                     ->columnSpanFull()
