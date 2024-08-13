@@ -1,14 +1,14 @@
 <template>
     <nav class="navbar navbar-lg">
-        <div class="container-fluid">
-            <div class="menu"><a href="#" class="nav-logo" aria-label="Logo"><img src="/images/logo.png"
-                                                                                  alt="SPIPM" loading="lazy" class="logo-img" width="70" height="54"></a>
+        <div class="container">
+            <div class="menu">
+                <a href="#" class="nav-logo" aria-label="Logo"><img src="/images/logo.png" alt="SPIPM" loading="lazy" class="logo-img" width="70" height="54"></a>
+                <div class="header-search-block position-relative">
+                    <input type="search" class="header-search" name="" id="" placeholder="Search for anything|">
+                    <i class="fa-solid fa-magnifying-glass header-search-icon"></i>
+                </div>
+                <button class="total-view" type="button">Total View</button>
                 <div class="menu-lang">
-                    <div class="header-search-block position-relative">
-                        <input type="search" class="header-search" name="" id="" placeholder="Search for anything|">
-                        <i class="fa-solid fa-magnifying-glass header-search-icon"></i>
-                    </div>
-                    <button class="total-view" type="button">Total View</button>
                     <div class="account-header">
                         <button class="login-btn active" type="button">Login</button>
                         <button class="login-btn" type="button">Register</button>

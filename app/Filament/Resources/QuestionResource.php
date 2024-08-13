@@ -6,6 +6,7 @@ use App\Filament\Resources\QuestionResource\Pages;
 use App\Filament\Resources\QuestionResource\RelationManagers;
 use App\Models\Category;
 use App\Models\Question;
+use App\Models\Reference;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -24,9 +25,15 @@ class QuestionResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\Select::make('reference_id')
+                    ->label('Reference')
+                    ->options(function () {
+                        return Reference::pluck('reference_code', 'id');
+                    })
+                    ->columnSpanFull(),
+
                 Forms\Components\RichEditor::make('question')
                     ->required()
-                    ->maxLength(400)
                     ->columnSpanFull(),
 
                 Forms\Components\FileUpload::make('image_url')
@@ -35,7 +42,6 @@ class QuestionResource extends Resource
 
                 Forms\Components\Textarea::make('sub_question')
                     ->label('Sub Question')
-                    ->maxLength(400)
                     ->columnSpanFull(),
 
                 Forms\Components\TextInput::make('option_a')

@@ -19,7 +19,8 @@ class Question extends Model
         'option_c',
         'option_d',
         'category_id',
-        'image_url'
+        'image_url',
+        'reference_id'
     ];
 
     public function category(): BelongsTo

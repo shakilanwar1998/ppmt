@@ -1,12 +1,4 @@
-@import "question-grid.css";
-@import "question-style.css";
-@import "style.css";
 @import "grid.css";
-@import "menunew.css";
 @import "menu.css";
-
-/*@tailwind base;*/
-/*@tailwind components;*/
-/*@tailwind utilities;*/
-
-
+@import "menunew.css";
+@import "style.css";
