@@ -1,12 +1,12 @@
 <template>
     <div class="stamp-card-inner">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4 col-5">
                 <div class="stamp-img-block">
                     <img src="/images/stamp.jpg" alt="">
                 </div>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8 col-7">
                 <div class="stamp-detail d-flex justify-content-between align-items-center h-100">
                     <div class="stamp-left">
                         <h2 class="stamp-heading">qr digital stamp card sale</h2>
@@ -30,3 +30,5 @@
         </div>
     </div>
 </template>
+<script setup lang="ts">
+</script>
