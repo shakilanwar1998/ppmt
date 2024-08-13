@@ -22,17 +22,7 @@
     content: "\f005";
     position: absolute;
     right: -38px;
-    font-family: "Font Awesome 6 Free", serif;
-}
-.account-login {
-    border-color: rgba(180, 180, 180, 1) !important;
-    background-color: transparent !important;
-    border-width: 1px !important;
-    border-style: solid !important;
-
-    color: var(--black-color) !important;
-    text-align: center;
-    padding: 0 !important;
+    font-family: "Font Awesome 6 Free";
 }
 .total-view {
     border: 1px solid rgba(208, 208, 208, 1);
@@ -85,11 +75,69 @@
 input[type="search"]::placeholder{
     color: var(--black-color);
 }
-@media screen and (max-width: 768px) {
-    .top-header{
-        display: none;
+@media screen and (min-width: 768px) {
+    .account-login {
+        border-color: rgba(180, 180, 180, 1) !important;
+        background-color: transparent !important;
+        border-width: 1px !important;
+        border-style: solid !important;
+        color: var(--black-color) !important;
+        text-align: center;
+        padding: 0 !important;
     }
-    .header-search-block, .total-view {
-        display: none;
+}
+@media screen and (max-width: 768px) {
+    .header-ads-inner {
+        gap: 45px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+    }
+    .account-login {
+        width: 30px !important;
+        height: 30px !important;
+        font-size: 14px !important;
+        padding: 0 !important;
+    }
+    #sidebarCollapse, #mobile-menu {
+        width: 30px;
+        height: 30px;
+        padding: 0;
+    }
+    .menu{
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .menu-lang {
+        gap: 10px;
+    }
+    .language {
+        font-size: 10px;
+        padding: 8px 8px;
+    }
+    .login-btn {
+        font-size: 12px;
+        padding: 3px 5px;
+    }
+    .navbar {
+        padding-top: 10px;
+    }
+    .header-search-block {
+        order: 3;
+        width: 59.77777%;
+    }
+    .total-view {
+        order: 4;
+        width: 33.3333%;
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+    .header-search {
+        padding: 6.5px 25px 6.5px 40px;
+        width: 100%;
+        font-size: 12px;
+    }
+    .nav-logo{
+        margin-right: 0 !important;
     }
 }

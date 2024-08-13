@@ -16,6 +16,7 @@
   flex-wrap: inherit;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
 }
 .menu-lang {
     display: flex;
@@ -33,6 +34,7 @@
     text-decoration: none;
     display: flex;
     align-items: center;
+    /* margin-right: 90px; */
 }
 .navbar-menu .navbar-item .navbar-link {
   color: #000000;
@@ -219,4 +221,8 @@
   .lang-item img{
     width: 30px;
   }
+  .language {
+    font-size: 10px !important;
+}
+
 }

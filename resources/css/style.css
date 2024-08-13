@@ -7,7 +7,7 @@
   }
 
 html{
-    overflow-x: hidden
+    overflow-x: hidden;
 }
 body{
     font-family: "Inter", sans-serif;
@@ -24,7 +24,35 @@ input[type="radio"]{
     height: 0;
     width: 0;
   }
-  
+  .question label {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    background-color: transparent;
+    color: #000;
+    padding: 15px 19px;
+    border-radius: 10px;
+    border-color: var(--primary-color);
+    border-style: solid;
+    border-width: 1px;
+}
+.question input[type="radio"]:checked + label {
+    background-color: var(--primary-color);
+}
+@media screen and (max-width:767.98px) {
+    .date-timer-text {
+        font-size: 14px;
+        line-height: 16px;
+    }
+    .main-title {
+        font-size: 24px;
+        line-height: 26px;
+    }
+    .answer {
+        font-size: 16px;
+    }    
+}
   label {
     display: table-cell;
     vertical-align: middle;
@@ -156,30 +184,6 @@ input[type="radio"]:checked + label {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-}
-/* tab css start */
-.active{
-    display: block;
-}
-.hide{
-    display: none;
-}
-
-ul{
-    padding: 0px;
-    
-}
-ul li{
-    float: left;
-    margin-right: 10px;
-    margin-bottom: 10px;
-}
-
-.list{
-    width: 100px;
-    height: 100px;
-    background: #EEE;
-    padding: 10px;        
 }
 /* Input css :start */
 .inputContainer {
@@ -461,12 +465,7 @@ input#auto-login, input#term {
     line-height: 28px;
     text-align: center;
 }
-th, td{
-    padding: 20px;
-    border-collapse: collapse;
-    border: 1px solid rgba(208, 208, 208, 1);
-    /* border-radius: 20px; */
-}
+
 table {
     border: 1px solid rgba(208, 208, 208, 1);
     color: #000;
@@ -475,10 +474,35 @@ table {
     line-height: 16px;
     text-align: center;
     border-radius: 20px;
-    /* overflow: hidden; */
-    border-collapse: collapse;
+    overflow: hidden;
     width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: 20px;
   }
+  th, td{
+    padding: 20px;
+    border-collapse: collapse;
+    /* border-top: 1px solid rgba(208, 208, 208, 1); */
+    /* border-radius: 20px; */
+}
+  table th:not(:last-child),
+table td:not(:last-child) {
+ border-right:  1px solid rgba(208, 208, 208, 1);
+}
+table>thead>tr:not(:last-child)>th,
+table>thead>tr:not(:last-child)>td,
+table>tbody>tr:not(:last-child)>th,
+table>tbody>tr:not(:last-child)>td,
+table>tfoot>tr:not(:last-child)>th,
+table>tfoot>tr:not(:last-child)>td,
+table>tr:not(:last-child)>td,
+table>tr:not(:last-child)>th,
+table>thead:not(:last-child),
+table>tbody:not(:last-child),
+table>tfoot:not(:last-child) {
+ border-bottom: 1px solid rgba(208, 208, 208, 1);
+}
   th {
     font-weight: 700;
     text-transform: uppercase;
@@ -620,9 +644,22 @@ line-height: 18px;
 
 .rank-wise-inner {
     text-align: center;
-    border-right: 2px solid rgba(208, 208, 208, 1);
+    /* border-right: 1px solid rgba(208, 208, 208, 1); */
+    position: relative;
+    z-index: 1;
 }
-
+.rank-wise-inner:after {
+    content: "";
+    position: absolute;
+    right: -12px;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: rgba(208, 208, 208, 1);
+}
+.rank-wise .row .col-md-3:nth-last-child(1) .rank-wise-inner:after {
+    width: 0;
+}
 .rank-wise-heading {
     font-size: 18px;
     font-weight: 700;
@@ -710,6 +747,184 @@ line-height: 18px;
     margin-top: 60px;
 }
 /* tab css end */
+.ribbon {
+    position: relative;
+    margin: 0 auto 20px;
+    padding: 10px 5px;
+    text-align: center;
+    max-width: 86%;
+    width: 100%;
+    background: radial-gradient(circle, #ffd1dc 24%, #f85084 82%);
+    color: #000000;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+  }
+    .ribbon::before, .ribbon::after {
+      content: '';
+      width: 78px;
+      height: 100%;
+      background-color: #f85084;
+    
+      /* position ribbon ends behind and slightly lower */
+      position: absolute;
+      z-index: -1;
+      top: 0px;
+      
+      /* clip ribbon end shape */
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 25% 50%);
+    
+      /* draw and position the folded ribbon bit */
+      background-image: linear-gradient(45deg, transparent 50%, #f85084 50%);
+      background-size: 20px 20px;
+      background-repeat: no-repeat;
+      background-position: bottom right;
+    }
+    .name-point {
+      font-size: 21px;
+      display: block;
+      font-weight: 700;
+  }
+  .date-animation {
+    display: block;
+  }
+    .ribbon::before {
+      left: -20px;
+    }
+    
+    .ribbon::after {
+      right: -20px;
+      transform: scaleX(-1); /* flip horizontally */
+    }
+    .rank-table-block {
+        overflow-y: hidden;
+        overflow-x: scroll;
+        width: 100%;
+    }
+    @media (max-width: 480px) {
+      .ribbon { font-size: 16px; }
+    }
+    .bg-video-animation {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: -1;
+      height: 100%;
+  }
+  .employee-image {
+    border: 7px solid;
+    border-image: linear-gradient(#ffd1dc, #f85084, #ffd1dc, #f85084) 30;
+    overflow: hidden;
+    margin-bottom: 5px;
+  }
+  .employee-image img {
+    display: block;
+    max-height: 266px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .years-image {
+    max-width: 325px;
+    width: 100%;
+    margin-bottom: -25px;
+    position: relative;
+    z-index: 1;
+  }
+  .club-achiever{
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    height: 100%;
+  }
+  .club-achievers-inner {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .main-title-animation {
+    color: #fff;
+    font-size: 50px;
+    font-weight: 300;
+    margin: 0 0 20px 0;
+    font-family: "Abril Fatface", serif;
+  }
+  .bg-video-animation video {
+    object-fit: cover;
+    object-position: center;
+  }
+  .years-image-diamond {
+    position: absolute;
+    bottom: 120px;
+    left: 50%;
+    transform: translateX(-50%) !important;
+    max-width: 250px;
+    z-index: 1;
+  }
+  .years-of-glore {
+    position: relative;
+    z-index: 1;
+  }
+  .diamond-title {
+    text-shadow: 0px 0 20px #fac349;
+  }
+  .viewbtn {
+    color: #000;
+    text-decoration: none;
+    font-size: 21px;
+    font-weight: bold;
+  }
+  .ribbon-view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 102px;
+    max-height: 100%;
+  }
+  @media screen and (max-width: 574px) {
+    .main-title-animation {
+      font-size: 30px;
+      text-align: center !important;
+      margin-bottom: 30px;
+  }
+  .small-text {
+    font-size: 20px;
+    display: block;
+  }
+  .years-of-glore {
+    max-width: 345px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .years-image {
+    max-width: 235px;
+  }
+  .years-image-diamond {
+    width: 55%;
+    bottom: 80px;
+    max-width: max-content;
+  }
+  }
+  @media screen and (max-width: 480.98px) {
+    .employee-image img{
+      height: 171px;
+    }
+  }
+  @media screen and (max-width: 991.98px) {
+    .emplyee-name {
+      max-width: 300px;
+      margin: 0 auto;
+      width: 100%;
+  }
+  .club-achievers-inner{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  }
+  .list-group{margin:0;padding:0}.list-group li{padding:0;list-style:none;margin:0}.list-group li a{color:currentColor;text-decoration:none}
 @media screen and (max-width:767.98px) {
     .date-timer-text {
         font-size: 14px;
@@ -722,9 +937,147 @@ line-height: 18px;
     .answer {
         font-size: 16px;
     }    
-    .rank-table-block {
-        overflow-y: hidden;
-        overflow-x: scroll;
-        width: 100%;
+    .wrapper {
+        margin-top: 20px;
     }
+    .top-rank {
+        padding-top: 0;
+    }
+    .category-dropdown select {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+    .attendee-count {
+        font-size: 32px;
+        line-height: 32px;
+    }
+    .attendence-inner {
+        padding: 25px 20px;
+    }
+    .attendence-inner p {
+        font-size: 16px;    
+        line-height: 20px;
+    }
+    .join-link h2, .profile-join-link h2 {
+        font-size: 24px;
+        line-height: 31.2px;
+        text-align: center;
+        margin-top: 30px;
+    }
+    th, td {
+        padding: 10px;
+        font-size: 12px;
+    }
+    .stemp-card{
+        margin-top: 60px;
+    }
+    .result-count-text p {
+        font-size: 14px;
+    }
+    .stamp-detail {
+        flex-wrap: wrap;
+    }
+    .stamp-heading {
+        font-size: 14px;
+        line-height: 14px;
+    }
+    .stamp-point {
+        font-size: 14px;
+        line-height: 14px;
+    }
+    .stamp-date-time {
+        font-size: 12px;
+        line-height: 15px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .stamp-btn {
+        font-size: 14px;
+        line-height: 14px;
+        padding: 7px 25px;
+    }
+    .time, .date {
+        font-size: 12px;
+        line-height: 22px;
+        margin-left: 2px;
+    }
+    .stamp-card-inner {
+        padding-bottom: 20px;
+        padding-top: 20px;
+    }
+    .pagination a {
+        width: 40px;
+        height: 40px;
+        line-height: 23px;
+        font-size: 16px;
+        margin-left: 4px;
+        margin-right: 4px;
+    }
+    .footer {
+        margin-top: 40px;
+    }
+    .copyright p {
+        padding: 20px 0;
+        font-size: 14px;
+        line-height: 18px;
+    }
+    .profile-attendence-box {
+        padding: 0;
+        max-width: 230px;
+        height: 230px;
+        margin: 0 auto 30px;
+    }
+    .profile-attendee-count {
+        font-size: 32px;
+        line-height: 32px;
+    }
+    .profile-attendence-inner p {
+        font-size: 16px;
+        line-height: 16px;
+        margin-bottom: 0;
+    }
+    .profile-join-link {
+        margin-top: 30px;
+    }
+    .rank-wise-icon {
+        width: 40px;
+        height: 40px;
+        line-height: 48px;
+    }
+    
+    .rank-wise-icon img {
+        max-width: 20px;
+    }
+    .rank-wise-heading {
+        font-size: 14px;
+        line-height: 14px;
+    }
+    .rank-wise .row .col-md-3{
+        border-bottom: 1px solid rgba(208, 208, 208, 1);
+        margin-bottom: 15px;
+    }
+    .rank-wise .row .col-md-3:nth-last-child(2), .rank-wise .row .col-md-3:nth-last-child(1){
+        border-bottom: 0px solid rgba(208, 208, 208, 1);
+        margin-bottom: 0px;
+    }
+    .rank-wise .row .col-md-3:nth-last-child(3) .rank-wise-inner:after {
+        width: 0;
+    }
+    .balance {
+        font-size: 18px;
+        line-height: 18px;
+    }
+    .login-wrapper {
+        margin-top: 40px;
+      }
+      .form-logo img {
+        max-width: 130px;
+      }
+      .ft-22 {
+        font-size: 16px;
+        line-height: 20px;
+      }
+      .account-login-tab{
+        font-size: 18px;
+      }
 }

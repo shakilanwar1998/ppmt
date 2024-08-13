@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/grid.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="date-timer-block">
+        <div class="container-xxl">
+            <div class="timer-date-inner">
+                <div class="row justify-content-between">
+                    <div class="col-6">
+                        <div class="date-block">
+                            <p class="date-timer-text">Date: <span id="date">13 / 06 / 2024</span></p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="timer-block">
+                            <p class="date-timer-text">Timer: <span id="date">13 / 06 / 2024</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-title-block">
+                <h1 class="main-title text-center">IGCSE PROGRESSIVE MATH TEST</h1>
+            </div>
+            <div class="question-block">
+                <div class="question">
+                    <h3 class="question-title">01.</h3>
+                    <textarea name="" id="" class="question-type" placeholder="Type your question |"></textarea>
+                    <div class="question-image-upload">
+                        <div class="upload-btn-wrapper">
+                            <img src="assets/img/humbleicons_upload.svg" alt="" class="d-block mx-auto">
+                            <button class="btn">Upload a file</button>
+                            <input type="file" id="imageUpload" accept=".png, .jpg, .jpeg" name="filename"/>
+                            <div class="avatar-preview">
+                                <div id="imagePreview" style="background-image: url(assets/img/humbleicons_upload.svg);">
+                                </div>
+                            </div>
+                          </div>
+                    </div>
+                    <ul class="list-group">
+                        <li><input type="radio" id="a" name="question" value="A" checked>
+                            <label for="a">A</label></li>
+                        <li><input type="radio" id="b" name="question" value="B">
+                            <label for="b">B</label></li>
+                        <li><input type="radio" id="c" name="question" value="C">
+                            <label for="c">C</label></li>
+                        <li><input type="radio" id="d" name="question" value="D">
+                            <label for="d">D</label></li>
+                    </ul>
+                    <div class="correct-answer">
+                        <h2 class="answer">Correct Answer Is: (A)</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

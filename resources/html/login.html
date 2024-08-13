@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/grid.css">
+    <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../css/menunew.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header class="login-header">
+        <nav class="navbar navbar-lg">
+            <div class="container-fluid">
+                <div class="menu"><a href="#" class="nav-logo" aria-label="Logo"><img src="assets/img/logo.png"
+                            alt="SPIPM" loading="lazy" class="logo-img" width="70" height="54"></a>
+					<div class="menu-lang">
+                        <select name="" id="" class="language fa-solid fa-globe">
+                            <option value="English" class="fa-solid fa-globe">&#xf0ac English</option>
+                            <option value="English" class="fa-solid fa-globe">&#xf0ac Hindi</option>
+                        </select>
+                        <button class="account-login" type="button"><i class="fa-regular fa-user"></i></button>
+						<button class="mobile-icons" id="mobile-menu" type="button" aria-label="Toggle"><i class="fa-solid fa-bars"></i></button>
+					</div>
+					<div class="menu-overlay"></div>
+                    <div class="nav-menu-collaps" id="main-menu">
+                        <ul class="navbar-menu ms-auto">
+                            <!-- <li class="navbar-item active"><a href="/" class="navbar-link">Home</a></li>
+                            <li class="navbar-item"><a href="registration.html" data class="navbar-link">Registration</a></li>
+                            <li class="navbar-item"><a href="ProductRegistration.html" class="navbar-link">Product Registration</a></li>
+                            <li class="navbar-item"><a href="BankPayment.html" data-scroll class="navbar-link">Bank Payment</a></li>
+                            <li class="navbar-item"><a href="RetailSelling.html" class="navbar-link">Retail Selling</a></li>
+                            <li class="navbar-item"><a href="analysis.html" class="navbar-link">Code Generation</a></li>
+                            <li class="navbar-item"><a href="quantities.html" class="navbar-link">Quantities</a></li>
+                            <li class="navbar-item"><a href="PriceChange.html" class="navbar-link">Price Change</a></li> -->
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="login-wrapper">
+        <div class="form-logo text-center">
+            <img src="assets/img/logo.png" alt="">
+            <p class="ft-22">Login To post an add, Favorite an and Call to the Seller!</p>
+        </div>
+        <div class="login-register">
+            <ul class="account-tabs">
+                <li class="clickme tabs-inner active-tab"><a href="login.html" class="activelink account-login-tab">Login</a></li>
+                <li class="clickme tabs-inner"><a href="register.html" class=" account-login-tab">Register</a></li>
+            </ul>
+            <!-- <div style="clear: both;"></div>    -->
+            <div id="container">
+                <div class="tab" id="one">
+                    <div class="login-form">
+                        <form action="">
+                            <div class="inputContainer">
+                                <div class="position-relative">
+                                    <input type="text" class="input" placeholder="Username" value="">
+                                    <label for="" class="label">Username</label>
+                                    <i class="fa-regular fa-user input-icon"></i>
+                                </div>
+                            </div>
+                            <div class="inputContainer login-password-container">
+                                <div class="position-relative">
+                                <input type="password" class="input" placeholder="Password (4digits. Ex: 4578)" value="Password">
+                                <label for="" class="label">Password (4digits. Ex: 4578)</label>
+                                <i class="fa-solid fa-lock input-icon"></i>
+                                <i class="fa-regular fa-eye eye-password"></i>
+                            </div>
+                            </div>
+                            <div class="registration-btn-block">
+                                <a href="#" class="primary-btn">Login</a>
+                            </div>
+                            <div class="forget-password text-center">
+                                <div class="forget">
+                                    <a href="#" class="anchor-link">Forget Password</a>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="business-register-block text-center">
+                            <p class="form-text tabs-inner">New Customer? <a href="register.html" class="anchor-link">Register</a> here.</p>
+                        </div>
+                        <div class="social-login">
+                            <button class="google" type="button"><img src="assets/img/google.png" alt="">Google</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
