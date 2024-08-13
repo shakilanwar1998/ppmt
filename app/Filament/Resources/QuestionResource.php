@@ -44,6 +44,10 @@ class QuestionResource extends Resource
                     ->label('Sub Question')
                     ->columnSpanFull(),
 
+                Forms\Components\FileUpload::make('sub_question_image')
+                    ->label('Sub Image')
+                    ->columnSpanFull(),
+
                 Forms\Components\TextInput::make('option_a')
                     ->label('Option A')
                     ->columnSpanFull()

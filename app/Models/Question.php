@@ -20,7 +20,8 @@ class Question extends Model
         'option_d',
         'category_id',
         'image_url',
-        'reference_id'
+        'reference_id',
+        'sub_question_image'
     ];
 
     public function category(): BelongsTo
