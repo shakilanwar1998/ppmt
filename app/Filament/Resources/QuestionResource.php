@@ -40,7 +40,7 @@ class QuestionResource extends Resource
                     ->label('Image')
                     ->columnSpanFull(),
 
-                Forms\Components\Textarea::make('sub_question')
+                Forms\Components\RichEditor::make('sub_question')
                     ->label('Sub Question')
                     ->columnSpanFull(),
 
@@ -140,6 +140,7 @@ class QuestionResource extends Resource
                     ->label('Image'),
 
                 Tables\Columns\TextColumn::make('question')
+                    ->html()
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('image_url')
                     ->label('Image'),

@@ -19,7 +19,6 @@ class EditQuestion extends EditRecord
 
     protected function mutateFormDataBeforeSave(array $data): array
     {
-        $data['question'] = strip_tags($data['question']);
         $data['answer'] = $this->getCorrectAnswer($data);
         return $data;
     }
