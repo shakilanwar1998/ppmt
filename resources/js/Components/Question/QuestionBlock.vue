@@ -9,7 +9,7 @@
 
             <QuestionImage v-if="question.sub_question_image" :url=question.sub_question_image />
 
-            <ul class="list-group mt-5">
+            <ul class="list-group" style="margin-top: 25px">
 
                 <li class="items-center mb-5" style="padding-bottom: 20px">
                     <input type="radio" id="option-a" name="question" value="A" class="mr-2">

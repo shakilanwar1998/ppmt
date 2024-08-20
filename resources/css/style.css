@@ -98,7 +98,7 @@ input[type="radio"]:checked + label {
 .question-image img {
     width: 100%;
     max-width: 1240px;
-    max-height: 200px;
+    max-height: 225px;
     object-fit: contain;
     object-position: center;
     border-radius: 20px;
