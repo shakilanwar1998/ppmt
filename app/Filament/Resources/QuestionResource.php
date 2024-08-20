@@ -27,9 +27,9 @@ class QuestionResource extends Resource
             ->schema([
                 Forms\Components\Select::make('reference_id')
                     ->label('Reference')
-                    ->options(function () {
-                        return Reference::pluck('reference_code', 'id');
-                    })
+                    ->options(fn () => Reference::pluck('reference_code', 'id'))
+                    ->default(fn () => Reference::where('is_default', true)->value('id') ?? 0)
+
                     ->columnSpanFull(),
 
                 Forms\Components\RichEditor::make('question')
