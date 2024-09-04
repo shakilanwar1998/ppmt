@@ -21,6 +21,7 @@ class Question extends Model
         'category_id',
         'image_url',
         'reference_id',
+        'question_number',
         'sub_question_image'
     ];
 
