@@ -33,7 +33,6 @@ class QuestionResource extends Resource
                     ->columnSpanFull(),
 
                 Forms\Components\TextInput::make('question_number')
-                    ->numeric()
                     ->columnSpanFull(),
 
                 Forms\Components\RichEditor::make('question')
