@@ -3,9 +3,13 @@
     <Header/>
     <div class="wrapper">
         <div class="container-xxl">
+
             <TopRank/>
+
             <div class="stemp-card">
-                <ResultsCount />
+
+                <ResultsCount/>
+
                 <div class="stamp-card-block">
                     <Exam/>
                 </div>
