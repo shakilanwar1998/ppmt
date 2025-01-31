@@ -25,7 +25,11 @@ class ReferenceResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('reference_code')
                     ->required()
+                    ->columnSpanFull()
                     ->maxLength(255),
+
+                Forms\Components\Toggle::make('is_default')
+                    ->label('Default')
             ]);
     }
 
@@ -35,6 +39,12 @@ class ReferenceResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('reference_code')
                     ->searchable(),
+
+                Tables\Columns\ToggleColumn::make('is_default')
+                    ->label('Default')
+                    ->beforeStateUpdated(function ($record, $state) {
+                        if($state) Reference::where('is_default', true)->update(['is_default' => false]);
+                    }),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

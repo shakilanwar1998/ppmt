@@ -10,6 +10,7 @@ class Reference extends Model
     use HasFactory;
 
     protected $fillable = [
-        'reference_code'
+        'reference_code',
+        'is_default'
     ];
 }

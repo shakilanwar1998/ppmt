@@ -13,7 +13,7 @@ body{
     font-family: "Inter", sans-serif;
     width: 100%;
     margin: 0;
-    color: var(--primary-color);
+    /*color: var(--primary-color);*/
 }
 img{
     max-width: 100%;
@@ -51,7 +51,7 @@ input[type="radio"]{
     }
     .answer {
         font-size: 16px;
-    }    
+    }
 }
   label {
     display: table-cell;
@@ -98,7 +98,7 @@ input[type="radio"]:checked + label {
 .question-image img {
     width: 100%;
     max-width: 1240px;
-    height: 340px;
+    max-height: 225px;
     object-fit: contain;
     object-position: center;
     border-radius: 20px;
@@ -191,7 +191,7 @@ input[type="radio"]:checked + label {
     width: 100%;
     margin-bottom: 25px;
   }
-  
+
   .input {
     position: relative;
     height: 100%;
@@ -207,18 +207,18 @@ input[type="radio"]:checked + label {
     z-index: 1;
     color: rgba(180, 180, 180, 1);
   }
-  
+
   /* Hide the placeholder texts (a) */
   /* login page css start */
   ::placeholder {
     color: transparent;
   }
-  
+
   .forget a {
     font-size: 15px;
     line-height: 18px;
   }
-  
+
   .label {
     position: absolute;
     top: 20px;
@@ -234,7 +234,7 @@ input[type="radio"]:checked + label {
     border-color: rgba(3, 7, 8, 1) !important;
     color: rgba(3, 7, 8, 1);
   }
-  
+
   .input:not(:placeholder-shown)+.label,
   .input:focus+.label {
     top: -9px;
@@ -289,7 +289,7 @@ input[type="radio"]:checked + label {
     padding: 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    
+
 }
 
 .clickme {
@@ -410,7 +410,7 @@ input#auto-login, input#term {
 }
 .language {
     position: relative;
-    display: flex; 
+    display: flex;
     outline: 0;
 }
 .language {
@@ -765,15 +765,15 @@ line-height: 18px;
       width: 78px;
       height: 100%;
       background-color: #f85084;
-    
+
       /* position ribbon ends behind and slightly lower */
       position: absolute;
       z-index: -1;
       top: 0px;
-      
+
       /* clip ribbon end shape */
       clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 25% 50%);
-    
+
       /* draw and position the folded ribbon bit */
       background-image: linear-gradient(45deg, transparent 50%, #f85084 50%);
       background-size: 20px 20px;
@@ -791,7 +791,7 @@ line-height: 18px;
     .ribbon::before {
       left: -20px;
     }
-    
+
     .ribbon::after {
       right: -20px;
       transform: scaleX(-1); /* flip horizontally */
@@ -936,7 +936,7 @@ line-height: 18px;
     }
     .answer {
         font-size: 16px;
-    }    
+    }
     .wrapper {
         margin-top: 20px;
     }
@@ -955,7 +955,7 @@ line-height: 18px;
         padding: 25px 20px;
     }
     .attendence-inner p {
-        font-size: 16px;    
+        font-size: 16px;
         line-height: 20px;
     }
     .join-link h2, .profile-join-link h2 {
@@ -1044,7 +1044,7 @@ line-height: 18px;
         height: 40px;
         line-height: 48px;
     }
-    
+
     .rank-wise-icon img {
         max-width: 20px;
     }

@@ -12,7 +12,6 @@ class CreateQuestion extends CreateRecord
 
     protected function mutateFormDataBeforeCreate(array $data): array
     {
-        $data['question'] = strip_tags($data['question']);
         $data['answer'] = $this->getCorrectAnswer($data);
         return $data;
     }

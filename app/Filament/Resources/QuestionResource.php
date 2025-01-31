@@ -27,9 +27,12 @@ class QuestionResource extends Resource
             ->schema([
                 Forms\Components\Select::make('reference_id')
                     ->label('Reference')
-                    ->options(function () {
-                        return Reference::pluck('reference_code', 'id');
-                    })
+                    ->options(fn () => Reference::pluck('reference_code', 'id'))
+                    ->default(fn () => Reference::where('is_default', true)->value('id') ?? 0)
+
+                    ->columnSpanFull(),
+
+                Forms\Components\TextInput::make('question_number')
                     ->columnSpanFull(),
 
                 Forms\Components\RichEditor::make('question')
@@ -40,7 +43,7 @@ class QuestionResource extends Resource
                     ->label('Image')
                     ->columnSpanFull(),
 
-                Forms\Components\Textarea::make('sub_question')
+                Forms\Components\RichEditor::make('sub_question')
                     ->label('Sub Question')
                     ->columnSpanFull(),
 
@@ -140,6 +143,7 @@ class QuestionResource extends Resource
                     ->label('Image'),
 
                 Tables\Columns\TextColumn::make('question')
+                    ->html()
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('image_url')
                     ->label('Image'),
